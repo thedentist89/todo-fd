@@ -1,0 +1,116 @@
+@tailwind base;
+
+@layer base {
+  body {
+    @apply font-Roboto;
+  }
+}
+
+@layer components {
+  .app-container {
+    @apply min-h-screen pt-6;
+    background-color: #f5f5f5;
+  }
+
+  .app-title {
+    @apply text-8xl text-center mb-10;
+    color: #af2f2f26;
+  }
+
+  .app-box {
+    @apply shadow w-120 mx-auto rounded;
+  }
+
+  .todo-prompt {
+    @apply bg-white w-full relative h-16;
+  }
+
+  .todo-prompt__input {
+    @apply absolute inset-0 w-full pl-16 text-xl border-none;
+  }
+
+  .todo-prompt__container {
+    @apply z-10 inset-y-0 w-16 absolute flex items-center justify-center;
+  }
+
+  .todo-prompt__toggle {
+    @apply text-gray-200 hover:text-gray-400 hover:bg-gray-100 rounded-sm focus:outline-none;
+  }
+
+  .todo-prompt__toggle-icon {
+    @apply w-6 h-6;
+  }
+
+  .section-list {
+    @apply mx-auto w-120 border-t divide-y;
+  }
+
+  .todo-item {
+    @apply bg-white h-16 w-full relative;
+  }
+
+  .todo-item__input {
+    @apply absolute inset-0 w-full pl-16 text-xl text-gray-600 font-medium;
+  }
+
+  .todo-item__container {
+    @apply absolute inset-0 flex items-center w-full group;
+  }
+
+  .todo-item__devider {
+    @apply flex items-center justify-center w-16;
+  }
+
+  .todo-item__checkbox {
+    @apply w-7 h-7 rounded-full text-pink-500 focus:border-pink-300 focus:ring focus:ring-offset-0 focus:ring-pink-200 focus:ring-opacity-50;
+  }
+
+  .todo-item__title {
+    @apply flex-1 text-xl font-light;
+  }
+
+  .todo-item__title--completed {
+    @apply line-through text-gray-300;
+  }
+
+  .todo-item__title--active {
+    @apply text-gray-600;
+  }
+
+  .todo-item__delete-btn {
+    @apply hidden items-center justify-center w-16;
+  }
+
+  .todo-item__delete-icon {
+    @apply w-3 h-3 text-pink-800;
+  }
+
+  .app-footer {
+    @apply grid grid-cols-3 py-3 px-4 bg-white border-t text-sm text-gray-500 relative z-10;
+  }
+
+  .app-footer:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    overflow: hidden;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 20%), 0 8px 0 -3px #f6f6f6,
+      0 9px 1px -3px rgb(0 0 0 / 20%), 0 16px 0 -6px #f6f6f6,
+      0 17px 2px -6px rgb(0 0 0 / 20%);
+    z-index: -1;
+  }
+
+  .app-footer__action-box {
+    @apply text-right col-start-3;
+  }
+
+  .app-footer__clear-btn {
+    @apply focus:outline-none hover:underline;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
