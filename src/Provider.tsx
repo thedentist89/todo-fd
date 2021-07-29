@@ -1,13 +1,7 @@
 import React from "react";
 import { ITodo } from "./interfaces";
 
-const INITIAL_DATA = [
-  {
-    id: 1,
-    title: "first todo",
-    completed: false,
-  },
-];
+const INITIAL_DATA: ITodo[] = [];
 
 const TodoContext = React.createContext<
   | {

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { useTodos } from "../Provider";
 import { ITodo } from "../interfaces";
+import DeleteBtn from "./DeleteBtn";
 
 const TodoItem: React.FC<{ todo: ITodo }> = ({ todo }) => {
   const { todos, setTodos } = useTodos();
@@ -98,13 +99,7 @@ const TodoItem: React.FC<{ todo: ITodo }> = ({ todo }) => {
             {todo.title}
           </label>
           <div className="todo-item__delete-btn group-hover:flex">
-            <button
-              onClick={() => {
-                setTodos(todos.filter((todoItem) => todoItem.id !== todo.id));
-              }}
-            >
-              <ImCross className="todo-item__delete-icon" />
-            </button>
+            <DeleteBtn id={todo.id} />
           </div>
         </div>
       )}

@@ -1,17 +1,11 @@
-const proxyOpts = {
-  target: process.env.PROXY_SERVER || "http://127.0.0.1:4000",
-  secure: false,
-};
-
 module.exports = {
   devServer: {
-    proxy: ["/rest"].reduce(
-      (prev, cur) => ({
-        ...prev,
-        [cur]: proxyOpts,
-      }),
-      {}
-    ),
+    proxy: {
+      "/rest": {
+        target: process.env.PROXY_SERVER || "http://127.0.0.1:4000",
+        secure: false,
+      },
+    },
   },
   style: {
     postcss: {
