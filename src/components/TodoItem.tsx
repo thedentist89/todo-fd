@@ -4,7 +4,7 @@ import { useTodos } from "../Provider";
 import { ITodo } from "../interfaces";
 
 const TodoItem: React.FC<{ todo: ITodo }> = ({ todo }) => {
-  const { todos, setTodos } = useTodos();
+  const { setTodos } = useTodos();
   const [isEditing, setIsEditing] = useState(false);
   const [inputValue, setInputValue] = useState(todo.title);
 
