@@ -3,12 +3,20 @@ import { ImCross } from "react-icons/im";
 import { useTodos } from "../Provider";
 
 const DeleteBtn: React.FC<{ id: number }> = ({ id }) => {
-  const { todos, setTodos } = useTodos();
+  const { setTodos } = useTodos();
 
   return (
     <button
       onClick={() => {
-        setTodos(todos.filter((todoItem) => todoItem.id !== id));
+        fetch(`/rest/Tasks(${id})/?$method=delete`, {
+          method: "POST",
+        })
+          .then((res) => {
+            if (res.ok) {
+              setTodos((todos) => todos.filter((todo) => todo.id !== id));
+            }
+          })
+          .catch(console.error);
       }}
     >
       <ImCross className="todo-item__delete-icon" />
